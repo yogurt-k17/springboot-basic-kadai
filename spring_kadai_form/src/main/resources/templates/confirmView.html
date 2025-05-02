@@ -15,21 +15,21 @@
 				<th><b>入力内容</b></th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody th:object="${form}">
 			<tr>
 				<td>お名前</td>
-				//オブジェクトに渡されたnameを受ける
-				<td><span>th:text="${form.getName()}"</span></td>
+				<!--オブジェクトに渡されたnameを受ける-->
+				<td><span th:text="${form.name}"></span></td>
 			</tr>
 			
 			<tr>
 				<td>メールアドレス</td>
-				<td><span>th:text="${form.getEmail()}"</span></td> //th:field="*{email}
+				<td><span th:text="${form.email}"></span></td> <!--th:field="*{email}-->
 			</tr>
 			
 			<tr>
 				<td>お問い合わせ内容</td>
-				<td><span>th:text="${form.getMessage()}"</span></td>
+				<td><span th:text="${form.message}"></span></td>
 			</tr>
 		</tbody>
 	</table>

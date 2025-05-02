@@ -8,20 +8,20 @@
 
 <body>
 	<h2>お問い合わせフォーム</h2>
-	 
-	<form th:action="@{/form}" method="post" th:object="${form}">	//コントローラでモデルに渡したインスタンス
+ 																			<!--フォームの送信先の指定-->
+		<form th:action="@{/confirm}" method="post" th:object="${form}">	<!--コントローラでモデルに渡したインスタンス-->
 		<label for="name">お名前</label>
-		<input type="text" th:field="*{name}"><br> //入力内容をモデルに格納
-		//フォームの入力にエラーがあればフィールドのエラーメッセージを表示
+		<input type="text" th:field="*{name}"><br> <!--入力内容をモデルに格納-->
+		<!--フォームの入力にエラーがあればフィールドのエラーメッセージを表示-->
 		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red;"></div>
 		
 		<label for="name">メールアドレス</label>
 		<input type="text" th:field="*{email}"><br>
-		<div th:if="${#fields.hasErrors('email')}" th:errors="*{name}" style="color: red;"></div>
+		<div th:if="${#fields.hasErrors('email')}"th:errors="*{email}" style="color: red;"></div>
 		
 		<label for="message">お問い合わせ内容</label>
 		<textarea th:field="*{message}" cols="30" rows="10"></textarea>
-		<div th:if="${#fields.hasErrors('message')}"></div>
+		<div th:if="${#fields.hasErrors('message')}"th:errors="*{message}" style="color: red;"></div>
 		
 		<button type="submit">送信</button>
 	</form>
